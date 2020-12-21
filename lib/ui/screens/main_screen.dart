@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/ui/screens/bloc_screen.dart';
 import 'package:flutter_app/ui/screens/star_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -9,6 +10,7 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   final List<Widget> _allScreens = [
     StarScreen(),
+    BlocScreen(),
   ];
 
   @override
@@ -28,9 +30,10 @@ class _MainScreenState extends State<MainScreen> {
     return Container(
       margin: const EdgeInsets.only(bottom: 8.0),
       width: double.infinity,
+      height: 48.0,
       child: RaisedButton(
         child: Text(screen.toStringShort()),
-        color: Colors.red,
+        color: Theme.of(context).primaryColor,
         textColor: Colors.white,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
         onPressed: () => _push(screen),
