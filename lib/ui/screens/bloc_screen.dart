@@ -32,7 +32,7 @@ class _BlocScreenState extends State<BlocScreen> {
             cubit: _cubit,
             builder: (context, state) => ListTile(
               leading: IconButton(
-                icon: Icon(Icons.remove_circle),
+                icon: const Icon(Icons.remove_circle),
                 onPressed: _cubit.decrement,
               ),
               title: Text(
@@ -40,7 +40,7 @@ class _BlocScreenState extends State<BlocScreen> {
                 textAlign: TextAlign.center,
               ),
               trailing: IconButton(
-                icon: Icon(Icons.add_circle),
+                icon: const Icon(Icons.add_circle),
                 onPressed: _cubit.increment,
               ),
             ),

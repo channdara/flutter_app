@@ -6,7 +6,19 @@ class StarScreen extends StatefulWidget {
 }
 
 class _StarScreenState extends State<StarScreen> {
-  List<double> _list = [1.0, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2.0];
+  final List<double> _list = [
+    1.0,
+    1.1,
+    1.2,
+    1.3,
+    1.4,
+    1.5,
+    1.6,
+    1.7,
+    1.8,
+    1.9,
+    2.0,
+  ];
 
   @override
   Widget build(BuildContext context) {
