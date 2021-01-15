@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/ui/screens/bloc_screen.dart';
+import 'package:flutter_app/ui/screens/expansion_tile_screen.dart';
 import 'package:flutter_app/ui/screens/star_screen.dart';
 
 class MainScreen extends StatefulWidget {
@@ -11,6 +12,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<Widget> _allScreens = [
     StarScreen(),
     BlocScreen(),
+    ExpansionTileScreen(),
   ];
 
   @override
