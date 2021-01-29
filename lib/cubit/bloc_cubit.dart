@@ -4,15 +4,21 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class BlocCubit extends Cubit<BlocState> {
   BlocCubit() : super(BlocStateInit());
 
-  int count = 0;
+  int _count = 0;
+
+  int get count => _count;
+
+  void dispose() {
+    close();
+  }
 
   void increment() {
-    count++;
+    _count++;
     emit(BlocStateIncrement());
   }
 
   void decrement() {
-    count--;
+    _count--;
     emit(BlocStateDecrement());
   }
 }

@@ -18,7 +18,7 @@ class _BlocScreenState extends State<BlocScreen> {
 
   @override
   void dispose() {
-    _cubit.close();
+    _cubit.dispose();
     super.dispose();
   }
 
@@ -28,21 +28,21 @@ class _BlocScreenState extends State<BlocScreen> {
       appBar: AppBar(title: Text(widget.toStringShort())),
       body: Column(
         children: [
-          BlocBuilder(
-            cubit: _cubit,
-            builder: (context, state) => ListTile(
-              leading: IconButton(
-                icon: const Icon(Icons.remove_circle),
-                onPressed: _cubit.decrement,
-              ),
-              title: Text(
+          ListTile(
+            leading: IconButton(
+              icon: const Icon(Icons.remove_circle, color: Colors.red),
+              onPressed: _cubit.decrement,
+            ),
+            title: BlocBuilder(
+              cubit: _cubit,
+              builder: (context, state) => Text(
                 'Count: ${_cubit.count}',
                 textAlign: TextAlign.center,
               ),
-              trailing: IconButton(
-                icon: const Icon(Icons.add_circle),
-                onPressed: _cubit.increment,
-              ),
+            ),
+            trailing: IconButton(
+              icon: const Icon(Icons.add_circle, color: Colors.blue),
+              onPressed: _cubit.increment,
             ),
           ),
         ],
