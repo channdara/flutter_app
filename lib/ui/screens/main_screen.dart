@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/ui/screens/bloc_screen.dart';
+import 'package:flutter_app/ui/screens/chart_screen.dart';
 import 'package:flutter_app/ui/screens/expansion_tile_screen.dart';
 import 'package:flutter_app/ui/screens/star_screen.dart';
 
@@ -13,6 +14,7 @@ class _MainScreenState extends State<MainScreen> {
     StarScreen(),
     BlocScreen(),
     ExpansionTileScreen(),
+    ChartScreen(),
   ];
 
   @override
