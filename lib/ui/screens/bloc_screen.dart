@@ -8,7 +8,7 @@ class BlocScreen extends StatefulWidget {
 }
 
 class _BlocScreenState extends State<BlocScreen> {
-  BlocCubit _cubit;
+  BlocCubit? _cubit;
 
   @override
   void initState() {
@@ -18,7 +18,7 @@ class _BlocScreenState extends State<BlocScreen> {
 
   @override
   void dispose() {
-    _cubit.dispose();
+    _cubit!.dispose();
     super.dispose();
   }
 
@@ -31,18 +31,18 @@ class _BlocScreenState extends State<BlocScreen> {
           ListTile(
             leading: IconButton(
               icon: const Icon(Icons.remove_circle, color: Colors.red),
-              onPressed: _cubit.decrement,
+              onPressed: _cubit!.decrement,
             ),
             title: BlocBuilder(
-              cubit: _cubit,
-              builder: (context, state) => Text(
-                'Count: ${_cubit.count}',
+              bloc: _cubit,
+              builder: (context, dynamic state) => Text(
+                'Count: ${_cubit!.count}',
                 textAlign: TextAlign.center,
               ),
             ),
             trailing: IconButton(
               icon: const Icon(Icons.add_circle, color: Colors.blue),
-              onPressed: _cubit.increment,
+              onPressed: _cubit!.increment,
             ),
           ),
         ],

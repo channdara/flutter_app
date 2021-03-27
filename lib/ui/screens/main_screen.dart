@@ -35,11 +35,19 @@ class _MainScreenState extends State<MainScreen> {
       margin: const EdgeInsets.only(bottom: 8.0),
       width: double.infinity,
       height: 48.0,
-      child: RaisedButton(
+      child: ElevatedButton(
         child: Text(screen.toStringShort()),
-        color: Theme.of(context).primaryColor,
-        textColor: Colors.white,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(
+            Theme.of(context).primaryColor,
+          ),
+          textStyle: MaterialStateProperty.all<TextStyle>(
+            const TextStyle(color: Colors.white),
+          ),
+          shape: MaterialStateProperty.all<OutlinedBorder>(
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0)),
+          ),
+        ),
         onPressed: () => _push(screen),
       ),
     );

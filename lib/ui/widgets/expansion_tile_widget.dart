@@ -20,7 +20,7 @@ class ExpansionTileWidget extends StatelessWidget {
             headerBuilder: (context, isExpanded) =>
                 _buildPanelHeader(context, item),
             body: _buildPanelBody(context, item.children),
-            value: item.header,
+            value: item.header!,
           );
         }).toList(),
       ),
@@ -31,16 +31,16 @@ class ExpansionTileWidget extends StatelessWidget {
   Widget _buildPanelHeader(BuildContext context, ExpansionTileItem item) {
     return ListTile(
       onTap: () {},
-      title: Text(item.header),
+      title: Text(item.header!),
     );
   }
 
   /// return any widget you want, this is not restricted.
-  Widget _buildPanelBody(BuildContext context, List<String> body) {
+  Widget _buildPanelBody(BuildContext context, List<String>? body) {
     return (body ?? []).isEmpty
         ? const SizedBox()
         : Column(
-            children: body
+            children: body!
                 .map((item) => ListTile(
                       onTap: () {},
                       title: Text(item),
@@ -53,6 +53,6 @@ class ExpansionTileWidget extends StatelessWidget {
 class ExpansionTileItem {
   ExpansionTileItem({this.header, this.children});
 
-  final String header;
-  final List<String> children;
+  final String? header;
+  final List<String>? children;
 }

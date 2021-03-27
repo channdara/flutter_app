@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class ChartWidget extends StatelessWidget {
-  const ChartWidget({@required this.status});
+  const ChartWidget({required this.status});
 
   final StudentStatus status;
 
@@ -9,7 +9,7 @@ class ChartWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (context, constraints) {
-        final perObj = constraints.maxHeight / status.allItem.last;
+        final perObj = constraints.maxHeight / status.allItem.last!;
         return Container(
           height: constraints.maxHeight,
           width: constraints.maxWidth,
@@ -21,7 +21,7 @@ class ChartWidget extends StatelessWidget {
                 Colors.blue,
                 status.isAttend
                     ? constraints.maxHeight
-                    : perObj * status.attend,
+                    : perObj * status.attend!,
               ),
               const SizedBox(width: 16.0),
               _buildItem(
@@ -29,13 +29,13 @@ class ChartWidget extends StatelessWidget {
                 Colors.deepOrangeAccent,
                 status.isAbsent
                     ? constraints.maxHeight
-                    : perObj * status.absent,
+                    : perObj * status.absent!,
               ),
               const SizedBox(width: 16.0),
               _buildItem(
                 status.late,
                 Colors.grey,
-                status.isLate ? constraints.maxHeight : perObj * status.late,
+                status.isLate ? constraints.maxHeight : perObj * status.late!,
               ),
             ],
           ),
@@ -44,7 +44,7 @@ class ChartWidget extends StatelessWidget {
     );
   }
 
-  Widget _buildItem(int value, Color color, double height) {
+  Widget _buildItem(int? value, Color color, double height) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
@@ -52,7 +52,7 @@ class ChartWidget extends StatelessWidget {
         Container(
           color: color,
           width: 50.0,
-          height: height - 16.0 < 0.0 ? 0.0 : height - 16.0,
+          height: height - 16.0 < 0.0 ? 0.0 : height - 17.0,
         ),
       ],
     );
@@ -64,17 +64,17 @@ class StudentStatus {
     allItem.add(attend);
     allItem.add(absent);
     allItem.add(late);
-    allItem.sort((a, b) => a.compareTo(b));
+    allItem.sort((a, b) => a!.compareTo(b!));
   }
 
-  final int attend;
-  final int absent;
-  final int late;
-  List<int> allItem = [];
+  final int? attend;
+  final int? absent;
+  final int? late;
+  List<int?> allItem = [];
 
-  bool get isAttend => attend >= absent && attend >= late;
+  bool get isAttend => attend! >= absent! && attend! >= late!;
 
-  bool get isAbsent => absent >= attend && absent >= late;
+  bool get isAbsent => absent! >= attend! && absent! >= late!;
 
-  bool get isLate => late >= absent && late >= attend;
+  bool get isLate => late! >= absent! && late! >= attend!;
 }
